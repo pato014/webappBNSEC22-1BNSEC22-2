@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{
+            margin-left: 300px;
+            font-size: 24px;
+        }
+
+        .error{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="insert.php" method="post">
+        <input id="email" type="text" name="email">
+        <br>
+        <input id="pass" type="text" name="pass">
+        <br>
+        <input id="insertButton"  type="button" value="INSERT">
+    </form>
+</body>
+<script>
+    $("#insertButton").click(function(){
+       var email = $("#email").val();
+       var pass = $("#pass").val();
+       // console.log(name);
+       // console.log(pass);
+        $("#insertButton").prop('disabled', true);
+        $.ajax({
+            method: "POST",
+            url: "insertAjax.php",
+            data: {
+                email: email,
+                pass: pass
+            },
+            success: function(data) {
+                // d = JSON.parse(data);
+                // console.log(data);
+                // console.log(d);
+                // console.log(d.error);
+                console.log(data);
+                if(data==2){
+                    $("#pass").addClass("error");
+                    // window.location.href = 'https://www.google.ru/';
+                }
+            }
+        })
+    })
+</script>
+</html>
+
