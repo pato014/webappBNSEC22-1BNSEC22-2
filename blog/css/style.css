@@ -1,0 +1,13 @@
+header {
+  height: 120px;
+  background: beige;
+}
+
+article {
+  border: solid silver 1px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
